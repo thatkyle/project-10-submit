@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	head
+		title Page Not Found
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		h2 Sorry, the page you're looking for doesn't exist :(
+		p Error Details:
+		p #{message}
+		p #{error}

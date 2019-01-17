@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  unless bookDeleted
+    h1 Book: #{bookDetails.title}
+    form(action=`/books/book_detail/${bookDetails.id}` method="post")
+      p
+        label(for='title') Title
+        input#title(type='text' value=`${bookDetails.title}` name='title')
+      p
+        label(for='author') Author
+        input#author(type='text' value=`${bookDetails.author}` name='author')
+      p
+        label(for='genre') Genre
+        input#genre(type='text' value=`${bookDetails.genre}` name='genre')
+      p
+        label(for='first_published') First Published
+        input#first_published(type='text' value=`${bookDetails.year}` name='year')
+      p
+        input(type='submit' value='Update')
+        input(type='submit' formaction=`/books/book_detail/${bookDetails.id}/delete` value='Delete')
+    if bookUpdated
+      h2 Book successfully updated!
+  if bookDeleted
+    h1 Book successfully deleted!
